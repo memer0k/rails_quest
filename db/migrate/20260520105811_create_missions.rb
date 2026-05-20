@@ -2,7 +2,7 @@ class CreateMissions < ActiveRecord::Migration[8.1]
   def change
     create_table :missions do |t|
       t.string :title, null: false
-      t.string :status, default: "pending", null: false
+      t.string :status
       t.references :agent, null: false, foreign_key: true
 
       t.timestamps
