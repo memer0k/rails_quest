@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_12_000002) do
+ActiveRecord::Schema[8.1].define(version: 2026_05_20_105222) do
+  create_table "agents", force: :cascade do |t|
+    t.boolean "active", default: true, null: false
+    t.string "codename", null: false
+    t.datetime "created_at", null: false
+    t.integer "level", default: 1, null: false
+    t.datetime "updated_at", null: false
+    t.index ["codename"], name: "index_agents_on_codename", unique: true
+  end
+
   create_table "quest_progresses", force: :cascade do |t|
     t.datetime "accepted_at"
     t.datetime "created_at", null: false
