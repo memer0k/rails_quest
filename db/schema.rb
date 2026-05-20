@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_05_20_105222) do
+ActiveRecord::Schema[8.1].define(version: 2026_05_20_105540) do
   create_table "agents", force: :cascade do |t|
     t.boolean "active", default: true, null: false
     t.string "codename", null: false
@@ -28,5 +28,13 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_20_105222) do
     t.datetime "unlocked_at"
     t.datetime "updated_at", null: false
     t.index ["quest_number"], name: "index_quest_progresses_on_quest_number", unique: true
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "category", null: false
+    t.datetime "created_at", null: false
+    t.string "name", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_skills_on_name", unique: true
   end
 end
